@@ -2,10 +2,10 @@
   (:require [clojure.string :as str :only (split replace upper-case trim)]))
 
 ;; Characters to strip
-(def unwanted #"(?i)\.|\,|\/|the")
+(def unwanted #"(?i)\.|\,|\/")
 
 ;; Non-name values
-(def non-name #"(?i)A\.K\.A|AKA|A\/K\/A|FKA|F\/K\/A|N\/K\/A|FICTITIOUS")
+(def non-name #"(?i)A\.K\.A|AKA|A\/K\/A|FKA|F\/K\/A|N\/K\/A|FICTITIOUS|THE")
 
 ;; Constant character with which to replace unwanted
 (def replacement-char "")
@@ -35,4 +35,5 @@
     (str/replace valid-name unwanted replacement-char)))
 
 (defn slice-name [fullname]
-  (split-name (clean-name fullname)))
+  (split-name 
+   (clean-name fullname)))

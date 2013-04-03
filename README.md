@@ -1,13 +1,13 @@
 # nameslice
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to take a full name and split it into individual name parts.
 
 ## Usage
 
-FIXME
+TODO
 
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 James Polera
 
 Distributed under the Eclipse Public License, the same as Clojure.

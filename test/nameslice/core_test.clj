@@ -9,4 +9,3 @@
 (deftest firstname-test-aka
   (testing "Firstname is James"
     (is (= "James" (first (slice-name "James Polera a/k/a Batman"))))))
-
