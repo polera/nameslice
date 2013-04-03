@@ -1,18 +1,14 @@
 (ns nameslice.core
-  (:require [clojure.string :as str :only (split replace upper-case trim)]))
+  (:require [clojure.string :as str :only (split replace upper-case trim)]
+            [nameslice.constants :as const]))
 
 ;; Characters to strip
 (def unwanted #"(?i)\.|\,|\/")
 
-;; Non-name values
-(def non-name #"(?i)A\.K\.A|AKA|A\/K\/A|FKA|F\/K\/A|N\/K\/A|FICTITIOUS|THE")
-
-;; Constant character with which to replace unwanted
-(def replacement-char "")
 
 ;; Get a non-name value to split on (if any)
 (defn get-non-name [fullname]
-  (let [non-name-val (re-find non-name fullname) ]
+  (let [non-name-val (re-find const/non-name fullname) ]
   (if-not (nil? non-name-val) non-name-val "w")))
 
 ;; Drop anything after a non-name value in our fullname
@@ -32,7 +28,7 @@
 
 (defn clean-name [fullname]
   (let [valid-name (drop-non-name fullname)]
-    (str/replace valid-name unwanted replacement-char)))
+    (str/replace valid-name unwanted const/replacement-char)))
 
 (defn slice-name [fullname]
   (split-name 
