@@ -4,4 +4,9 @@
 
 (deftest firstname-test
   (testing "Firstname is James"
-    (is (= "James" (first (split-name "James Polera"))))))
+    (is (= "James" (first (slice-name "James Polera"))))))
+
+(deftest firstname-test-aka
+  (testing "Firstname is James"
+    (is (= "James" (first (slice-name "James Polera a/k/a Batman"))))))
+

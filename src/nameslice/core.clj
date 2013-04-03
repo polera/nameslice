@@ -10,8 +10,10 @@
 ;; Constant character with which to replace unwanted
 (def replacement-char "")
 
+;; Get a non-name value to split on (if any)
 (defn get-non-name [fullname]
-  (re-find non-name fullname))
+  (let [non-name-val (re-find non-name fullname) ]
+  (if-not (nil? non-name-val) non-name-val "w")))
 
 ;; Drop anything after a non-name value in our fullname
 (defn drop-non-name [fullname]
