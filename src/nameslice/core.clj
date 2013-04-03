@@ -30,7 +30,7 @@
 
 (defn clean-name [fullname]
   (let [valid-name (drop-non-name fullname)]
-  (str/replace valid-name unwanted replacement-char)))
+    (str/replace valid-name unwanted replacement-char)))
 
 (defn slice-name [fullname]
   (split-name (clean-name fullname)))
