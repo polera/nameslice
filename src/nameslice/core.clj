@@ -5,7 +5,6 @@
 ;; Characters to strip
 (def unwanted #"(?i)\.|\,|\/")
 
-
 ;; Get a non-name value to split on (if any)
 (defn get-non-name [fullname]
   (let [non-name-val (re-find const/non-name fullname) ]
